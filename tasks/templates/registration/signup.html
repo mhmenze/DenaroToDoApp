@@ -1,0 +1,53 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'style2.css' %}">  <!-- Ensure the CSS file is linked -->
+    <title>Sign Up Page</title>
+</head>
+<body>
+    <div class="square">
+        <i style="--clr:#00ff0a;"></i>
+        <i style="--clr:#ff0057;"></i>
+        <i style="--clr:#fffd44;"></i>
+        <div class="login">
+            <h2>Sign Up</h2>
+            <form method="post" action="{% url 'signup' %}">
+                {% csrf_token %}
+                <div class="inputBx">
+                    <input type="text" name="username" placeholder="Username" required>
+                    {% if form.username.errors %}
+                        <p class="error">{{ form.username.errors }}</p>
+                    {% endif %}
+                </div>
+                <div class="inputBx">
+                    <input type="email" name="email" placeholder="Email" required>
+                    {% if form.email.errors %}
+                        <p class="error">{{ form.email.errors }}</p>
+                    {% endif %}
+                </div>
+                <div class="inputBx">
+                    <input type="password" name="password1" placeholder="Password" required>
+                    {% if form.password1.errors %}
+                        <p class="error">{{ form.password1.errors }}</p>
+                    {% endif %}
+                </div>
+                <div class="inputBx">
+                    <input type="password" name="password2" placeholder="Confirm Password" required>
+                    {% if form.password2.errors %}
+                        <p class="error">{{ form.password2.errors }}</p>
+                    {% endif %}
+                </div>
+                <div class="inputBx">
+                    <input type="submit" value="Sign Up">
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
+
