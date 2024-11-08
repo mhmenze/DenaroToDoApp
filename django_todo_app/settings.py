@@ -27,9 +27,9 @@ SECRET_KEY = 'django-insecure-%(zt!thth9wpy5s*dt3_*4oxwn9chpc4dt!-ee9qoad92q0nq%
 ENCRYPT_KEY= b'9pDltZyAas2mzu4ps9WBAsfngIR_Pf6aU9L7npOiXaQ='
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['mhmenze97.pythonanywhere.com']
 
 
 # Application definition
@@ -47,6 +47,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -137,3 +138,5 @@ EMAIL_HOST_PASSWORD = 'ynfd ctxa yzam pcap'  # Use an app-specific password for 
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+CSRF_TRUSTED_ORIGINS = ['URL']
